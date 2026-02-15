@@ -1,4 +1,4 @@
-import { getClases } from "@/lib/clases";
+import { getTemas } from "@/lib/clases";
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return "";
@@ -10,14 +10,8 @@ function formatDate(dateStr: string): string {
   });
 }
 
-function truncateContent(content: string, maxLength: number = 120): string {
-  const stripped = content.replace(/\n/g, " ").trim();
-  if (stripped.length <= maxLength) return stripped;
-  return stripped.slice(0, maxLength).trim() + "…";
-}
-
 export default async function Home() {
-  const clases = await getClases();
+  const temas = await getTemas();
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-stone-950">
@@ -28,52 +22,52 @@ export default async function Home() {
             Docencia
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
-            Gestión de Proyectos Informáticos
+            Gestion de Proyectos Informaticos
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
             Material de clases, apuntes y recursos para estudiantes. Enfoque
-            práctico en metodologías ágiles, planificación y control de proyectos
+            practico en metodologias agiles, planificacion y control de proyectos
             de software.
           </p>
         </div>
       </header>
 
-      {/* Clases grid */}
+      {/* Temas grid */}
       <section className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
         <h2 className="text-sm font-medium uppercase tracking-widest text-stone-500 dark:text-stone-500">
-          Últimas clases
+          Temas
         </h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {clases.length === 0 ? (
+          {temas.length === 0 ? (
             <p className="col-span-full text-stone-500 dark:text-stone-400">
-              No hay clases publicadas aún.
+              No hay temas publicados aun.
             </p>
           ) : (
-            clases.map((clase) => (
-              <article
-                key={clase.slug}
+            temas.map((tema) => (
+              <a
+                key={tema.slug}
+                href={`/temas/${tema.slug}`}
                 className="group flex flex-col rounded-lg border border-stone-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-stone-800 dark:bg-stone-900"
               >
-                <time
-                  dateTime={clase.date}
-                  className="text-xs font-medium text-stone-500 dark:text-stone-500"
-                >
-                  {formatDate(clase.date)}
-                </time>
-                <h3 className="mt-2 text-lg font-semibold text-stone-900 dark:text-stone-50 group-hover:text-amber-600 dark:group-hover:text-amber-500">
-                  {clase.title}
+                <h3 className="text-lg font-semibold text-stone-900 dark:text-stone-50 group-hover:text-amber-600 dark:group-hover:text-amber-500">
+                  {tema.nombre}
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-stone-600 line-clamp-3 dark:text-stone-400">
-                  {truncateContent(clase.content)}
+                <p className="mt-2 text-sm text-stone-500 dark:text-stone-400">
+                  {tema.cantidadClases}{" "}
+                  {tema.cantidadClases === 1 ? "clase" : "clases"}
                 </p>
-                <a
-                  href={`/clases/${clase.slug}`}
-                  className="mt-4 inline-flex items-center text-sm font-medium text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400"
-                  aria-label={`Ver clase: ${clase.title}`}
-                >
-                  Ver clase →
-                </a>
-              </article>
+                {tema.ultimaFecha && (
+                  <time
+                    dateTime={tema.ultimaFecha}
+                    className="mt-auto pt-4 text-xs text-stone-400 dark:text-stone-500"
+                  >
+                    Ultima actualizacion: {formatDate(tema.ultimaFecha)}
+                  </time>
+                )}
+                <span className="mt-3 inline-flex items-center text-sm font-medium text-amber-600 group-hover:text-amber-700 dark:text-amber-500 dark:group-hover:text-amber-400">
+                  Ver clases &rarr;
+                </span>
+              </a>
             ))
           )}
         </div>

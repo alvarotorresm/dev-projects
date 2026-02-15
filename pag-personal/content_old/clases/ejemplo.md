@@ -1,7 +1,6 @@
 ---
 title: Clase de ejemplo
 date: 2025-02-14
-tema: gestion-agil
 ---
 
 Este es el contenido de ejemplo para una clase.
