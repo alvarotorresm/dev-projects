@@ -34,7 +34,7 @@ export default function Navbar({ temas }: { temas: TemaNav[] }) {
           href="/"
           className="text-base font-semibold tracking-tight text-stone-900 dark:text-stone-50"
         >
-          Gestion de Proyectos
+          La libreta de ATM
         </Link>
 
         {/* Dropdown de Temas */}

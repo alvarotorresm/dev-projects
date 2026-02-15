@@ -19,15 +19,16 @@ export default async function Home() {
       <header className="border-b border-stone-200 dark:border-stone-800">
         <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
           <p className="text-sm font-medium uppercase tracking-widest text-amber-600 dark:text-amber-500">
-            Docencia
+            Notas
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-50 sm:text-4xl">
-            Gestion de Proyectos Informaticos
+            Informática: proyectos, analítica y desarrollo.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600 dark:text-stone-400">
-            Material de clases, apuntes y recursos para estudiantes. Enfoque
-            practico en metodologias agiles, planificacion y control de proyectos
-            de software.
+            Material de clases, apuntes y recursos para estudiantes (y no estudiantes).
+          </p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-stone-600 dark:text-stone-400 italic">
+            La paciencia es la compañía de la sabiduría - S. Agustín de Hipona.
           </p>
         </div>
       </header>
