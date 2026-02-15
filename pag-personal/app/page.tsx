@@ -1,4 +1,3 @@
-
 import { getClases } from "@/lib/clases";
 
 function formatDate(dateStr: string): string {
