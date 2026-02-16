@@ -59,10 +59,16 @@ body {
   font-weight: 700;
   font-style: italic;
 }
+/* Igualando el tamaño de fuente, margen y line-height de p, ul y li */
+.clase-prose p,
+.clase-prose ul,
+.clase-prose li {
+  font-size: 1.0rem;
+  margin: 1.0rem 0;
+  line-height: 1.75;
+}
 .clase-prose p {
-  margin: 1rem 0;
   color: rgb(68 64 60);
-  line-height: 1.8;
 }
 @media (prefers-color-scheme: dark) {
   .clase-prose p { color: rgb(212 212 212); }
