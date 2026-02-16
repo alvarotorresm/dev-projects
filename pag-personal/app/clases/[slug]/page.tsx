@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { HTMLAttributes } from "react";
 import { getClaseBySlug, getClases } from "@/lib/clases";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 
 export async function generateStaticParams() {
   const clases = await getClases();
@@ -68,9 +70,26 @@ export default async function ClasePage({
 
         {/* Contenido Markdown con tipografía para lectura larga */}
         <article className="clase-prose mt-10">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {clase.content}
-          </ReactMarkdown>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeSlug]}
+          components={{
+            ul: (props) => (
+              <ul
+                className="list-disc list-inside my-4 pl-2 [&>li]:my-1"
+                {...(props as HTMLAttributes<HTMLUListElement>)}
+              />
+            ),
+            ol: (props) => (
+              <ol
+                className="list-decimal list-inside my-4 pl-2 [&>li]:my-1"
+                {...(props as HTMLAttributes<HTMLOListElement>)}
+              />
+            ),
+          }}
+        >
+          {clase.content}
+        </ReactMarkdown>
         </article>
       </div>
     </div>

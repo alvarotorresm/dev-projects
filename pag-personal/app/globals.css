@@ -47,6 +47,18 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
 }
+.clase-prose h4 {
+  margin-top: 1.75rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-style: italic;
+}
+.clase-prose h5 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-style: italic;
+}
 .clase-prose p {
   margin: 1rem 0;
   color: rgb(68 64 60);
@@ -97,11 +109,14 @@ body {
 @media (prefers-color-scheme: dark) {
   .clase-prose blockquote { background: rgba(41, 37, 36, 0.5); }
 }
-.clase-prose ul, .clase-prose ol {
+.clase-prose ul,
+.clase-prose ol {
+  list-style: revert;
   margin: 1rem 0;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
 }
 .clase-prose li {
+  display: list-item;
   margin: 0.25rem 0;
   line-height: 1.6;
 }

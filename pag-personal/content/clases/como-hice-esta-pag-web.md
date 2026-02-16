@@ -4,9 +4,9 @@ date: 2026-02-14
 tema: desarrollo-web
 ---
 
-**Importante:** El contenido que estás apunto de leer no fue creado con IA. Pero la página, sí. Además, estoy asumiendo que no tienes conocimientos de programación web.
+**Importante:** El contenido que estás apunto de leer no fue creado con IA. Pero la página, sí. Además, estoy asumiendo que no tienes conocimientos de programación web, pero que al menos has usado algún lenguaje de programación.
 
-## Motivación
+## 1. Motivación
 Hace algunos años que trabajo en informática, principalmente en analítica de datos y gestión de proyectos. Pero nunca había logrado desplegar una app web desde cero.
 
 Dado que imparto clases, sabía que mi primera aplicación debía ser para docencia.
@@ -15,20 +15,20 @@ Tengo la creencia de que todo conocimiento que sirva a otros debe compartirse.
 
 Este es mi intento de hacer eso.
 
-## Proceso
+## 2. Proceso
 Trato de ser coherente con las clases que me toca impartir (Gestión de Proyectos, por ejemplo).
 
 Es por esto que, como todo proyecto informático, es necesario seguir algún estándar / proceso estructurado.
 
 Por lo tanto, el proceso seguido es el siguiente:
 
-1. [Definición del problema](##definición-del-problema).
-3. [Definición de la solución](#definición-de-la-solución).
-4. [Desarrollo de la solución](#desarrollo-de-la-solución).
-5. [Pruebas y despliegue en local](#pruebas-y-despliegue-en-local).
-6. [Despligue (con Vercel)](#despliegue-con-vercel).
+1. [Definición del problema](#3-definición-del-problema)
+2. [Definición de la solución](#4-definición-de-la-solución)
+3. [Desarrollo de la solución](#5-desarrollo-de-la-solución)
+4. [Pruebas y despliegue en local](#6-pruebas-y-despliegue-en-local)
+5. [Despliegue (con Vercel)](#7-despliegue-con-vercel)
 
-## Definición del problema
+## 3. Definición del problema
 
 Problemas que me motivaron a crear esta app web:
 - **Es posible mejorar la experiencia de usuario respecto de cómo administro actualmente la información de mis clases**: suelo manejar bastante información de mis asignaturas. Creo apuntes, comparto notas, busco links. Pero, creo que depender de compartir una carpeta en OneDrive tiene limitaciones para mi, tales como...
@@ -38,7 +38,7 @@ Problemas que me motivaron a crear esta app web:
 - **Motivación personal**: Nunca había hecho una app web, por lo que debía hacer una sobre algo que me llamase la atención (docencia).
 
 
-## Definición de la solución
+## 4. Definición de la solución
 
 Dado el problema, la solución definida fue crear una app web que permita navegar por asignatura (en esta app, llamadas "temas") apuntes y material que haya generado. 
 
@@ -55,9 +55,9 @@ El último requisito hace referencia a 3 tecnologías. Estas fueron escogidas po
 2. Tailwind CSS: También presenta beneficios a la hora de usar IA. Tailwind usa "clases de utilidad". En lugar de archivos separados, escribes el estilo directamente en el componente (ej. ```<div className="bg-blue-500 shadow-md p-4">```). Cuando le pides a Cursor "haz que esta tarjeta sea azul y tenga sombra", la IA no tiene que navegar entre múltiples archivos para ver dónde está el CSS. Lo cambia ahí mismo en la misma línea.
 3. React: es la tecnología web más popular de la última década (lea: [Uso de React](https://www.weblineindia.com/es/blog/reactjs-web-development-for-modern-websites/)), esto implica que la IA fue entrenada viendo mucho código de esta librería.
 
-## Desarrollo de la solución
+## 5. Desarrollo de la solución
 
-### 1. Preparación del ambiente
+### 5.1. Preparación del ambiente
 
 Para partir: definir en que OS trabajar y con qué IDE.
 
@@ -67,7 +67,7 @@ Dado lo anterior, me quedé con lo mejor de los 2 mundos, programar en Linux des
 
 *Importante: los siguientes pasos toman en cuenta que tu usuario es Administrador el PC, en otro caso no funcionará* 
 
-#### 1.1: Instalar WSL y Ubuntu
+#### 5.1.1. Instalar WSL y Ubuntu
 
 1. **Abrir PowerShell como Administrador:** En el menú Inicio de Windows, escribe "PowerShell", haz clic derecho sobre el resultado y selecciona "Ejecutar como administrador".
 2. **Ejecuta el comando para instalar:** 
@@ -78,14 +78,14 @@ Dado lo anterior, me quedé con lo mejor de los 2 mundos, programar en Linux des
 3. **Configura tu usuario de Linux:** se abrirá una ventana de terminal de Ubuntu (si no se abre, búscala en el menú Inicio como "Ubuntu"). Te pedirá que crees un nombre de usuario y una password.
 
 
-#### 1.2: Instalar Cursor (u otro AI-Native IDE de tu preferencia)
+#### 5.1.2. Instalar Cursor (u otro AI-Native IDE de tu preferencia)
 
 1. **Descarga el IDE:** Ve a la página ([Cursor | Download](https://cursor.com/download)) y descarga el instalador para Windows.
 2. **Configura Cursor con tu usuario y contraseña**. La app que estás viendo la hice con la suscripción Pro, de $20USD/mes. *Sobre los modelos usados*: La app es simple, por lo que utilicé principalmente Composer 1.5 (modelo propietario de Cursor), pero para un cambio complejo utilicé Opus 4.6 de Claude. Me conviene utilizar principalmente el modelo Composer 1.5 ya que es más económico y evito llegar al límite en el uso de agentes.
 2. **Abre Cursor y ve a Extensiones:** En la barra lateral izquierda, verás un ícono de unos cuadrados.
 3. **Instala la extensión "WSL":** En el buscador de extensiones, escribe **WSL**. Busca la que está publicada por **Microsoft** y haz clic en "Instalar".
 
-#### 1.3: Crear carpeta de proyecto
+#### 5.1.3. Crear carpeta de proyecto
 
 Aquí empecé a utilizar Linux. Lo primero es ingresar a la terminal.
 
@@ -107,7 +107,7 @@ Aquí empecé a utilizar Linux. Lo primero es ingresar a la terminal.
 
 Ahora, es necesario entender qué es NodeJS y npm
 
-#### Definición: ¿Qué es NodeJS, npm y package.json?
+#### 5.1.4. Definición: ¿Qué es NodeJS, npm y package.json?
 
 Node JS un entorno de ejecución de JavaScript. Es aquello que nos permite ejecutar JavaScript en nuestro computador, emulando el motor de Google Chrome (lea [Qué es NodeJS](https://www.mytaskpanel.com/node-js-y-express-js-el-stack-javascript-para-desarrollo-back-end-veloz/))
 
@@ -116,7 +116,7 @@ Por otra parte, Node JS cuenta con un gestor de paquetes llamado ```npm```, algo
 Finalmente, se debe trabajar con un archivo llamado ```package.json```, este contiene los metadatos del proyecto (nombre, versión, etc.), las librerías que se necesitan (descargadas mediante npm) y comandos para compilar / probar la aplicación. Gracias a este archivo el LLM que estás utilizando puede "entender" cómo está construido el proyecto. 
 
 
-#### 1.4 Crear estructura del proyecto (Next.js, utilizando NodeJS)
+#### 5.1.5. Crear estructura del proyecto (Next.js, utilizando NodeJS)
 
 Cuando se instala NodeJS se instala npm también. En WSL no debe instalarse ya que vienen en el sistema.
 
@@ -134,13 +134,13 @@ Durante la ejecución el asistente suele preguntar opciones como:
 - Tailwind CSS → Responder: Sí
 - App Router → Responder: Sí
 
-### 2. Prompt y vibe-coding
+### 5.2. Prompt y vibe-coding
 
 Al tener nuestro ambiente configurado y nuestro IDE instalado ya es posible iniciar.
 
 El proceso de vibe-coding que utilicé se muestra a continuación.
 
-#### 2.1: Genera un prompt para que la IA te aconseje a realizar vibe-coding
+#### 5.2.1. Genera un prompt para que la IA te aconseje a realizar vibe-coding
 
 En la capacitación que tomé, siempre establecen que el proceso de desarrollo debe ser de lo general a lo particular.
 
@@ -165,13 +165,13 @@ Si bien, existen varios marcos mnemotécnicos de prompt engineering, en mi exper
 3. Formato (cómo debe entregar el resultado): usando vibe coding, tomando como base next.js y utilizando Cursor para este fin.
 4. Contexto (otros relevantes, tales como los requisitos del proyecto): La página web tiene por objetivo ser un blog para mostrar clases que he hecho en el tiempo sobre gestión de proyectos informáticos... hosting del blog gratuito... etc.
 
-#### 2.2: Aplica el proceso que el LLM te recomienda.
+#### 5.2.2. Aplica el proceso que el LLM te recomienda.
 
 En esta parte, te comparto el resultado del prompt. 
 
 Se debe ejecutar los pasos utilizando el IDE (en mi caso, Cursor) utilizando modo Agente cuando sea necesario. ***Nota***: si quieres saber más del plan de implementación te recomiendo utilizar el modo "Plan" y revisar los pasos, tomando nota de qué hará el agente en la posterior implementación.
 
-##### 2.2.1 Cómo usar el chat de Cursor
+##### 5.2.2.1. Antes de empezar: Cómo usar el chat de Cursor
 
 Ya habiendo abierto el IDE, a la derecha aparecerá el chat
 
@@ -189,8 +189,10 @@ Una vez abierto el chat, se debe pegar el prompt y ejecutar el proceso.
 
 Al finalizar de aplicar el proceso, será necesario que des tu aprobación final a los cambios. Dado que esta aplicación está creada como hobby, entonces da clic en "Keep All".
 
+Ahora sí... las respuestas del LLM.
+
 ---
-##### 2.2.2. Respuesta del LLM
+##### 5.2.2.2. Intro
 
 Como IA, no tengo años biológicos, pero tengo acceso a las mejores prácticas y arquitecturas que usan los desarrolladores senior hoy en día. Si adoptamos esa mentalidad pragmática y de "10 años de experiencia", te diré que la combinación de **Next.js + Cursor + Vibe Coding** es posiblemente la forma más rápida y moderna de levantar tu proyecto.
 
@@ -199,7 +201,7 @@ El "vibe coding" (escribir código interactuando en lenguaje natural con una IA 
 Aquí tienes la metodología profesional para aplicar *vibe coding* sin perder el control de tu arquitectura, ideal para tu blog de gestión de proyectos.
 
 
-##### Recomendación de Hosting Gratuito
+##### 5.2.2.3. Recomendación de Hosting Gratuito
 
 Dado que no te importa que tu código sea público (lo cual es genial para aportar a la comunidad), tu mejor combinación es **GitHub + Vercel**.
 
@@ -207,11 +209,11 @@ Dado que no te importa que tu código sea público (lo cual es genial para aport
 * **Vercel:** Es la empresa creadora de Next.js. Tienen un plan "Hobby" 100% gratuito de por vida para proyectos personales. Se conecta directamente a tu repositorio de GitHub: cada vez que guardes un cambio, Vercel actualizará tu página web automáticamente en segundos.
 
 
-##### Metodología de Vibe Coding con Cursor y Next.js
+##### 5.2.2.4. Metodología de Vibe Coding con Cursor y Next.js
 
 Para un blog de clases, no necesitas una base de datos compleja. Usaremos **Markdown (o MDX)** para que escribas tus clases como si fueran documentos de texto, y Next.js los convertirá en páginas web.
 
-##### 1. Preparar las "Reglas del Juego" (`.cursorrules`)
+##### 5.2.2.5. Preparar las "Reglas del Juego" (`.cursorrules`)
 
 El secreto de un buen *vibe coding* es el contexto. Antes de pedirle a Cursor que programe, debes decirle *cómo* programar.
 
@@ -219,7 +221,7 @@ El secreto de un buen *vibe coding* es el contexto. Antes de pedirle a Cursor qu
 * Usa este archivo para decirle a la IA: "Usa Next.js 14/15 con App Router, Tailwind CSS para los estilos, y crea componentes funcionales limpios. El contenido del blog vendrá de archivos Markdown locales".
 * *Nota: Al tener esto, la IA de Cursor no adivinará, seguirá tu estándar.*
 
-##### 2. El Andamiaje (Setup Inicial)
+##### 5.2.2.6. El Andamiaje (Setup Inicial)
 
 Aunque uses *vibe coding*, el primer paso se hace en la terminal.
 
@@ -227,7 +229,7 @@ Aunque uses *vibe coding*, el primer paso se hace en la terminal.
 `npx create-next-app@latest mi-blog-clases`
 * Dile que sí a TypeScript, Tailwind y App Router.
 
-##### 3. El Bucle de Vibe Coding (El método "Macro a Micro")
+##### 5.2.2.7. El Bucle de Vibe Coding (El método "Macro a Micro")
 
 Aquí es donde ocurre la magia. Un dev experimentado no le pide a la IA "hazme un blog completo". Se lo pide por partes:
 
@@ -238,28 +240,28 @@ Ve a la página principal (`page.tsx`) y usa el atajo de generación en línea. 
 * **Paso C: La vista de la clase.**
 Crea una ruta dinámica (ej. `/clases/[slug]/page.tsx`) y pídele a Cursor: *"Genera la vista de detalle de la clase. Toma el contenido Markdown, procésalo y muéstralo con buena tipografía para lectura larga. Agrega un botón de 'Volver'"*.
 
-##### 4. Iteración por "Vibes" (Estilos y Ajustes)
+##### 5.2.2.8. Iteración por "Vibes" (Estilos y Ajustes)
 
 Una vez que funciona, entras en modo *vibe*. En lugar de buscar cómo centrar un div en Tailwind, seleccionas el bloque de código en Cursor, presionas `Ctrl + K` y le dices:
 
 * *"Haz que esta tarjeta se vea más moderna, añade un poco de sombra y haz que el título sea azul oscuro".*
 * *"Cambia este diseño para que sea responsive y en móviles se vea en una sola columna".*
 
-##### 5. Despliegue (Deploy)
+##### 5.2.2.9. Despliegue (Deploy)
 
 1. Subes tu código a GitHub (Cursor tiene herramientas visuales para esto si no dominas los comandos de Git).
 2. Entras a Vercel.com, inicias sesión con tu GitHub, seleccionas tu repositorio y le das a "Deploy". Tu blog estará vivo en internet.
 
 ---
 
-##### 6. Tu Siguiente Paso
+##### 5.2.2.10. Tu Siguiente Paso
 
 
 El éxito de esto depende de arrancar con un buen contexto para que Cursor no se equivoque.
 
 ¿Te gustaría que te redacte el contenido exacto del archivo **`.cursorrules`** y el **primer *prompt*** que debes pegarle a la IA para que te genere toda la base del blog en un solo movimiento?
 
-## Pruebas y despligue en local
+## 6. Pruebas y despliegue en local
 
 Un vez aplicado cada uno de los pasos en el chat de Cursor, es necesario probar la aplicación.
 
@@ -273,9 +275,9 @@ Esto iniciará la aplicación en modo desarrollo.
 
 Es probable que la aplicación no opere como lo esperábamos. Al igual que en otros proyectos, es necesario revisar logs de error y ajustar el código.
 
-Para esto podemos usar [Iteración por "Vibes"](#4-iteración-por-"vibes"-estilos-y-ajustes) para ajustar el código.
+Para esto podemos usar [Iteración por "Vibes"](#5-2-2-8-iteración-por-vibes-estilos-y-ajustes) para ajustar el código.
 
-## Despliegue (con Vercel)
+## 7. Despliegue (con Vercel)
 
 Finalmente, una vez que la aplicación esté funcionando como lo esperábamos, es necesario desplegarla.
 
@@ -285,11 +287,11 @@ Lo primero es crear un repositorio en GitHub. Crear una cuenta es simple y se pu
 
 Luego, da clic en "Initialize Repository". Esto solicitará que inicies sesión en GitHub.
 
-### ¿Qué es Git y GitHub?
+### 7.1. ¿Qué es Git y GitHub?
 
 Git es un sistema de control de versiones que permite a los desarrolladores rastrear cambios en su código a lo largo del tiempo. GitHub es una plataforma que permite alojar repositorios Git de forma remota, lo que permite a los desarrolladores colaborar en proyectos de forma sencilla.
 
-### Desplegar el proyecto a GitHub
+### 7.2. Desplegar el proyecto a GitHub
 
 De aquí en adelante, se puede usar el comando de terminal para subir el proyecto a GitHub:
 ```bash
@@ -298,16 +300,24 @@ git commit -m "Primer commit" # Crea un commit con el mensaje "Primer commit"
 git push origin main # Sube el commit a GitHub
 ```
 
-### Desplegar el proyecto a Vercel
+### 7.3. ¿Qué es Vercel?
 
-Al igual que en el paso anterior, se debe crear una cuenta en Vercel y conectar el proyecto con GitHub.
+Vercel es una plataforma de hosting para proyectos web. Permite alojar proyectos de Next.js de forma sencilla y gratuita.
 
-Regístrate con GitHub: Elige la opción "Continue with GitHub". Esto enlazará tu repositorio de código con tu cuenta de hosting automáticamente.
+Además, es la empresa creadora de Next.js.
 
-Crea el proyecto: En tu panel principal de Vercel, haz clic en el botón negro "Add New..." y luego selecciona "Project".
+Vercel cuenta con un plan "Hobby", gratuito para proyectos personales.
 
-Importa tu repositorio: Vercel te mostrará una lista de tus repositorios de GitHub. Busca el que acabas de crear desde Cursor (ej. mi-blog-clases) y haz clic en el botón "Import".
+### 7.4. Desplegar el proyecto a Vercel
 
-Despliega (Deploy): Vercel analizará tu código y detectará automáticamente que es un proyecto de Next.js. La configuración por defecto es perfecta. Simplemente haz clic en el botón "Deploy".
+Al igual que en el paso anterior, se debe crear una cuenta en Vercel y conectar el proyecto con GitHub. Vercel cuenta con un plan "Hobby", gratuito para proyectos personales.
 
-Vercel se demora un par de minutos en compilar y desplegar. En esta etapa es posible que haya errores, pero Vercel cuenta con un Dashboard excelente, que permite identificar los errores. Toma dichos errores y corrígelos con tu LLM de preferencia.
+- **Regístrate con GitHub**: Elige la opción "Continue with GitHub". Esto enlazará tu repositorio de código con tu cuenta de hosting automáticamente.
+
+- **Crea el proyecto**: En tu panel principal de Vercel, haz clic en el botón negro "Add New..." y luego selecciona "Project".
+
+- **Importa tu repositorio**: Vercel te mostrará una lista de tus repositorios de GitHub. Busca el que acabas de crear desde Cursor (ej. mi-blog-clases) y haz clic en el botón "Import".
+
+- **Despliega (Deploy)**: Vercel analizará tu código y detectará automáticamente que es un proyecto de Next.js. La configuración por defecto es perfecta. Simplemente haz clic en el botón "Deploy".
+
+Vercel se demora un par de minutos en compilar y desplegar. En esta etapa es posible que haya errores, pero Vercel cuenta con un Dashboard excelente, que permite identificar los problemas. Toma los logs y corrige el problema con tu LLM de preferencia.
