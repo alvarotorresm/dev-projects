@@ -6,16 +6,16 @@ tema: desarrollo-web
 
 **Importante:** El contenido que estás apunto de leer no fue creado con IA. Pero la página, sí. Además, estoy asumiendo que no tienes conocimientos de programación web.
 
-# Motivación
+## Motivación
 Hace algunos años que trabajo en informática, principalmente en analítica de datos y gestión de proyectos. Pero nunca había logrado desplegar una app web desde cero.
 
-Dado que imparto clase, sabía que mi primera aplicación debía ser para efectos de docencia.
+Dado que imparto clases, sabía que mi primera aplicación debía ser para docencia.
 
-Tengo la creencia de que todo conocimiento que ayude a servir a otros debe compartirse.
+Tengo la creencia de que todo conocimiento que sirva a otros debe compartirse.
 
 Este es mi intento de hacer eso.
 
-# Proceso
+## Proceso
 Trato de ser coherente con las clases que me toca impartir (Gestión de Proyectos, por ejemplo).
 
 Es por esto que, como todo proyecto informático, es necesario seguir algún estándar / proceso estructurado.
@@ -30,8 +30,8 @@ Por lo tanto, el proceso seguido es el siguiente:
 
 ## Definición del problema
 
-Problemas que vi:
-- **Es posible mejorar la experiencia de usuario respecto de cómo administro actualmente la información**: suelo manejar bastante información cuando imparto. Creo apuntes, comparto notas, busco links. Creo que depender de compartir un OneDrive tiene limitaciones para mi, tales como...
+Problemas que me motivaron a crear esta app web:
+- **Es posible mejorar la experiencia de usuario respecto de cómo administro actualmente la información de mis clases**: suelo manejar bastante información de mis asignaturas. Creo apuntes, comparto notas, busco links. Pero, creo que depender de compartir una carpeta en OneDrive tiene limitaciones para mi, tales como...
     - *Lo poco intuitivo de un sistema de archivos*: El usuario debe entrar en una carpeta y adivinar en qué carpeta está cada documento, por muy "auto-explicativos" que sean los nombres. En una web se puede generar una navegación más fluida.
     - *Gestionar permisos (una lata, y me puedo equivocar)*. En una web tengo control absoluto y debo pensar qué ve cada usuario (lo que me obliga a ser ordenado).
 - **Contenido interactivo**: en una carpeta compartida o apuntes impresos no es factible complementar con video o audio. Hasta se puede agregar cuestionarios.
