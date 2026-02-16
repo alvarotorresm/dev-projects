@@ -22,7 +22,7 @@ Es por esto que, como todo proyecto informático, es necesario seguir algún est
 
 Por lo tanto, el proceso seguido es el siguiente:
 
-1. [Definición del problema](#definición-del-problema).
+1. [Definición del problema](##definición-del-problema).
 3. [Definición de la solución](#definición-de-la-solución).
 4. [Desarrollo de la solución](#desarrollo-de-la-solución).
 5. [Pruebas y despliegue en local](#pruebas-y-despliegue-en-local).
@@ -175,13 +175,13 @@ Se debe ejecutar los pasos utilizando el IDE (en mi caso, Cursor) utilizando mod
 
 Ya habiendo abierto el IDE, a la derecha aparecerá el chat
 
-![Chat de cursor](/public/desarrollo-web/como-hice-esta-pag-web/cursor-chat.png)
+![Chat de cursor](/desarrollo-web/como-hice-esta-pag-web/cursor-chat.png)
 
 > Chat de Cursor, configurado como agente y usando Composer 1.5
 
 Una vez abierto el chat, se debe pegar el prompt y ejecutar el proceso.
 
-![Prompt en el chat de Cursor](/public/desarrollo-web/como-hice-esta-pag-web/cursor-chat-usage.png)
+![Prompt en el chat de Cursor](/desarrollo-web/como-hice-esta-pag-web/cursor-chat-usage.png)
 
 > Prompt en el chat de Cursor. Dando clic en el botón destacado, el agente comenzará a ejecutar el proceso.
 
@@ -281,7 +281,7 @@ Finalmente, una vez que la aplicación esté funcionando como lo esperábamos, e
 
 Lo primero es crear un repositorio en GitHub. Crear una cuenta es simple y se puede conectar el proyecto con Cursor de forma visual aquí:
 
-![GitHub](/public/desarrollo-web/como-hice-esta-pag-web/github-repo.png)
+![GitHub](/desarrollo-web/como-hice-esta-pag-web/github-repo.png)
 
 Luego, da clic en "Initialize Repository". Esto solicitará que inicies sesión en GitHub.
 
