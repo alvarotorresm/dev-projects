@@ -6,6 +6,8 @@ tema: desarrollo-web
 
 **Importante:** El contenido que estás apunto de leer no fue creado con IA. Pero la página, sí. Además, estoy asumiendo que no tienes conocimientos de programación web, pero que al menos has usado algún lenguaje de programación.
 
+En fin, todo feedback es bienvenido (aunque probablemente sea más bullying que nada jajaja).
+
 ## 1. Motivación
 Hace algunos años que trabajo en informática, principalmente en analítica de datos y gestión de proyectos. Pero nunca había logrado desplegar una app web desde cero.
 
